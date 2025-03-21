@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="public\logo.png"/>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
   <title>FraudLens</title>
@@ -29,7 +30,7 @@
         </li>
         <li>
           <li><a href="#scan">Scan it</a></li>
-          <li><a href="#search"><img src="/assets/bx-search-alt.svg" alt="search"/></a></li>
+          <li><a href="#search"><img src="{% static '/assets/bx-search-alt.svg' %}" alt="search"/></a></li>
 
           
         </li>
@@ -42,7 +43,7 @@
 
   <section class="hero">
     <div class="hero-image">
-      <img src="assets/main.png" alt="scam"/>
+      <img src="{% static 'assets/main.png' %}" alt="scam"/>
       <h4 data-aos="fade-up">
         S <br />
         C <br />
@@ -83,7 +84,7 @@
   <section class="about-us" id="about-us">
     <div class="about-us__image">
       <div class="about-us__image-about1">
-        <img src="assets/about1.png" alt="about">
+        <img src="{% static 'assets/about1.png' %}" alt="about">
       </div>
       <button class="about-us__button">
         Learn More
@@ -169,6 +170,6 @@
   </section>
 
 </body>
-<script src="js/script.js" type="module"></script>
-<script src="js/features.js"></script>
+<script src="{% static 'js/script.js' %}" type="module"></script>
+<script src="{% static 'js/features.js' %}"></script>
 </html>
