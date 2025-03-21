@@ -103,21 +103,18 @@ def predict_trust_score(url):
     return round(trust_score, 2)
 
 #Input URL to get FLTS
-url_to_check = input("Enter URL to get FraudLens Trust Score(FLTS): ")
-trust_score = predict_trust_score(url_to_check)
-print(f"Trust Score for {url_to_check}: {trust_score}%")
-if trust_score>60:
-    print("Safe Website")
-else:
-    print("Might be a Fraudelent Website: Use at own risk")
-
-
-"""🔹 Recommended Trust Score Thresholds:
-✅ 80-100% → Safe (Low risk)
-⚠️ 50-79% → Suspicious (Potential risk)
-🚨 0-49% → Fraudulent (High risk)
-
-🔹 Best Practices for Flagging Sites:
-Strict Detection: Flag sites as fraudulent if trust score < 60% (More cautious).
-Balanced Approach: Flag sites below 50% as scams but manually review 50-70%.
-Lenient Approach: Only flag sites below 40% as phishing (Reduces false positives)."""
+#Returns as list in form [int score, str flag, str message]
+def run_trust(url):
+    trust_score = predict_trust_score(url)
+    if trust_score>=90:
+        return [int(trust_score), "Very Safe", "Trusted & legitimate. No action needed."]
+    elif trust_score>=75:
+        return [int(trust_score), "Mostly Safe", "Likely safe but review if necessary."]
+    elif trust_score>=50:
+        return [int(trust_score), "Suspicious", "Monitor closely. Needs further checks."]
+    elif trust_score>=30:
+        return [int(trust_score), "High Risk", "Possibly fraudulent. Manual review advised."]
+    elif trust_score>=10:
+        return [int(trust_score), "Dangerous", "Strong signs of fraud. Block or investigate immediately."]
+    else:
+        return [int(trust_score), "Critical Fraud", "Confirmed scam/phishing. Immediate action required."]
