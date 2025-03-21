@@ -7,5 +7,6 @@ def home(request):
 def signin(request):
     return render(request, 'login.html')
 
+#test
 def result(request):
     return render(request, 'result.html')
