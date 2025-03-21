@@ -25,7 +25,12 @@
   
   .about-us__image-about1 {
     border-bottom: 8px solid var(--color-creamson);
-    margin-top: -300px;
+    margin-top: 50px;
+  }
+
+  .about-us__image-about2 {
+    border-bottom: 8px solid var(--color-creamson);
+    
   }
   
   .about-us__button {
