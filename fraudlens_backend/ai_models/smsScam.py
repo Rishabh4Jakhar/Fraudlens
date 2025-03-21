@@ -8,7 +8,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, classification_report
 
 # Load cleaned dataset
-df = pd.read_csv("spam.csv", encoding="latin-1").iloc[:, :2]
+df = pd.read_csv(r".\ai_models\spam.csv", encoding="latin-1").iloc[:, :2]
 df.columns = ["Label", "Message"]
 df["Label"] = df["Label"].map({"ham": 0, "spam": 1})
 

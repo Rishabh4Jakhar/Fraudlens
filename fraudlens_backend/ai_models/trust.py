@@ -87,7 +87,7 @@ def extract_features(url):
     return list(features.values())
 
 # Load dataset and train model
-df = pd.read_csv("phishtank.csv")
+df = pd.read_csv(r".\ai_models\phishtank.csv")
 features = df.drop(columns=["index", "Result"])  # Remove unnecessary columns
 target = df["Result"].replace(-1, 0)  # Convert -1 to 0
 
