@@ -132,7 +132,7 @@ button:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-  
+    justify-content: flex-end;
     flex-direction: column;
     overflow: hidden;
   }
@@ -156,9 +156,10 @@ button:hover {
   }
   
   .scan__form {
-    min-width: 480px;
+    max-width: 500px;
     margin-top: 40px;
-    padding: 14px 14px 14px 24px;
+    margin-left: 325px;
+    padding: 10px 14px 10px 50px;
     display: flex;
     gap: 10px;
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -168,29 +169,36 @@ button:hover {
   
   .scan__form input {
     flex: 1;
-    font-size:  16px;
-    font-weight: 400px;
+    font-size: 16px;
+    font-weight: 400;
     font-family: var(--plus-jakarta-sans);
     color: #fff;
-    opacity: 0.5;
+    opacity: 0.8;
     background: transparent;
     border: none;
     outline: none;
     padding: 12px;
-  }
+    text-align: right; 
+}
   
   .scan__form input::placeholder {
     color: #fff;
     opacity: 0.5;
-    width: 50%;
+    width: 100%;
   }
   
   .scan__form button {
-    padding: 20px;
+    padding: 16px 24px;
+    margin-left: 50px;
+    margin-bottom: 14px;
     max-width: 180px;
     font-size: 16px;
     font-weight: 500;
     font-family: var(--plus-jakarta-sans);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    gap: 10px;
     color: #fff;
     text-align: center;
     background: var(--black-400);
@@ -198,4 +206,5 @@ button:hover {
     border: none;
     outline: none;
     cursor: pointer;
-  }
+    transition: background 0.3s ease-in-out;
+}
