@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="public\logo.png"/>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <title>FraudLens</title>
+</head>
+<body>
+  <header>
+    <nav class="header__nav">
+      <div class ="header__logo">
+        <h4 data-aos="fade-down">FraudLens</h4>
+        <div class="header__logo-overlay">
+        </div>
+      </div>
+      <ul class="header__menu" data-aos="fade-down">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#about-us">About us</a>
+        </li>
+        <li>
+          <a href="#features">Features</a>
+        </li>
+        <li>
+          <li><a href="#scan">Scan it</a></li>
+          <li><a href="#search"><img src="{% static '/assets/bx-search-alt.svg' %}" alt="search"/></a></li>
+
+          
+        </li>
+      </ul>
+      <ul class="header__menu-mobile" data-aos="fade-down">
+
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-image">
+      <img src="{% static 'assets/main.png' %}" alt="scam"/>
+      <h4 data-aos="fade-up">
+        S <br />
+        C <br />
+        A <br />
+        M
+      </h4>
+      <div class="hero-image__overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-content-info" data-aos="fade-left">
+        <h1>Exposing Scammers<br>
+            Ensuring Trusts</h1>
+          <p>Stay One Step Ahead - Detect Scams Before<br>
+            They Catch You!</p>
+        <div class="hero-content__buttons">
+          <a href="#scan">
+          <button class="hero-content__scan-button">
+            Scan it
+          </button>
+        </a>
+          <button class="hero-content__play-button">
+            <i class="ri-play-fill">How to Scan</i>
+          </button>
+        </div>
+      </div>
+      <div class="hero-content__testimonial" data-aos="fade-up">
+        <div class="hero-content__heading felx-center">
+          <h4>Check If a Website Is a Scam - Instantly!</h4>
+          <div class="hero-content__subheading">
+            <p>AI-powered scam detection to analyze websites, 
+              <br>emails, and transactions in real time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-us" id="about-us">
+    <div class="about-us__image">
+      <div class="about-us__image-about1">
+        <img src="{% static 'assets/about1.png' %}" alt="about">
+      </div>
+      <button class="about-us__button">
+        Learn More
+        <i class="ri-arrow-right-up-fill"></i>
+      </button>
+    </div>
+    <div class="about-us__content">
+      <p class="about__subtitle">About Us</p>
+      <h3 class="about__title">Our mission is<br>to create a safer digital world,<br>free from scams and fraud.</h3>
+      <p class="about__description">FraudLens is an AI-powered platform that detects<br>
+                                    scam websites and online fraud, 
+                                    <br>ensuring a safer digital space with real-time alerts and trust scores.</p>
+    </div>
+  </section>
+
+  <section class="features-page" id="features">
+    <h2 class="features-page__title">Detect, Prevent, Stay Secure</h2>
+
+    <div class="features-page__types">
+      <button class="features-page__types-btn active" onclick="filterFeatures('all')">All</button>
+        <button class="features-page__types-btn" onclick="filterFeatures('phishshield')">
+            <i class="ri-shield-user-fill"></i> PhishShield
+        </button>
+        <button class="features-page__types-btn" onclick="filterFeatures('scammail')">
+            <i class="ri-mail-fill"></i> ScamMail
+        </button>
+        <button class="features-page__types-btn" onclick="filterFeatures('fakesite')">
+            <i class="ri-globe-fill"></i> FakeSite
+        </button>
+      
+    </div>
+    <div class="features-page__catalogue">
+      <article class="features__card">
+        <h4 class="features__card-title">
+          <i class="ri-shield-user-fill"></i>
+          PhishShield</h4>
+          <div class="features__card-detail flex-between">
+            <p>Detects phishing websites and scam links<br>
+               before you fall victim to fraud.</p>
+          </div>
+
+      </article>
+      <article class="features__card active-card">
+        <h4 class="features__card-title1">
+          <i class="ri-mail-fill"></i>
+          ScamMail</h4>
+          <div class="features__card-detail flex-between">
+            <p>Identifies suspicious email patterns<br>
+               and warns users about potential phishing scams.</p>
+          </div>
+          
+      </article>
+      <article class="features__card">
+        <h4 class="features__card-title">
+          <i class="ri-globe-fill"></i>
+          FakeSite</h4>
+          <div class="features__card-detail flex-between">
+            <p>Recognizes fraudulent domains<br>
+               that mimic real websites to trick users.</p>
+          </div>
+          
+      </article>
+
+    </div>
+    <button class="features-page__button">
+      Explore More
+      <i class="ri-arrow-right-fill"></i>
+    </button>
+  </section>
+
+  <section class="scan flex-center" id="scan">
+    <h2 data-aos="flip-down">
+      Scan a Website <br />
+      for Scams
+    </h2>
+    <p data-aos="fade-up">Enter a website URL below and let FraudLens analyze its trust score.<br>
+       Stay protected from phishing, fraud, and fake sites</p>
+
+    <div class="scan__form" data-aos="fade-up">
+      <input type="text" placeholder="Enter the Wbsite URL "/>
+      <button>Scan Now</button>
+    </div>
+  </section>
+
+</body>
+<script src="{% static 'js/script.js' %}" type="module"></script>
+<script src="{% static 'js/features.js' %}"></script>
+</html>
