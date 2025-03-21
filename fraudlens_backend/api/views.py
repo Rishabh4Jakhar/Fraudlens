@@ -17,9 +17,3 @@ def detect_scam_email(request):
     # Call AI function here later
     response = {"scam_probability": 92, "message": "Likely a phishing attempt"}
     return JsonResponse(response)
-
-def home(request):
-    return render(request, 'index.html')
-
-def login(request):
-    return render(request, 'login.html')
