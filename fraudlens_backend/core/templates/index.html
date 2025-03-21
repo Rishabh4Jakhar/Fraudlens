@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="public\logo.png"/>
+  <link rel="icon" type="image/png" href="{% static 'public\logo.png' %}"/>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
@@ -85,6 +85,9 @@
     <div class="about-us__image">
       <div class="about-us__image-about1">
         <img src="{% static 'assets/about1.png' %}" alt="about">
+      </div>
+      <div class="about-us__image-about2">
+        <img src="{% static 'assets/about2.png' %}" alt="about">
       </div>
       <button class="about-us__button">
         Learn More
