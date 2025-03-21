@@ -7,9 +7,9 @@ document.getElementById("scannedUrl").innerText = url;
 const trustScore = 0;
 
 // Update UI
-document.getElementById("scoreDisplay").innerText = trustScore + "%";
-const needle = document.getElementById("needle");
-needle.style.transform = `rotate(${(trustScore / 100) * 180 - 90}deg)`;
+//document.getElementById("scoreDisplay").innerText = trustScore + "%";
+//const needle = document.getElementById("needle");
+//needle.style.transform = `rotate(${(trustScore / 100) * 180 - 90}deg)`;
 
 // Define Factors
 const factors = [
@@ -174,84 +174,71 @@ factors.forEach((factor) => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Select elements correctly
   const scanButton = document.querySelector(".scan__form button");
   const urlInput = document.querySelector(".scan__form input");
-  const resultSection = document.getElementById("result");
   const trustScoreSpan = document.getElementById("trustscore");
   const scoreDisplay = document.getElementById("scoreDisplay");
   const scannedUrlSpan = document.getElementById("scannedUrl");
   const analysisList = document.getElementById("analysisList");
-  const needle = document.getElementById("needle");
+  const pieChart = document.getElementById("pieChart");
+  const trustScoreText = document.getElementById("trustScoreText");
 
-  // Function to validate URL
   function isValidURL(url) {
-    const pattern = /^(https?:\/\/)?([\w\-]+(\.[\w\-]+)+)(:\d+)?(\/.*)?$/i;
-    return pattern.test(url);
+      return /^(https?:\/\/)?([\w\-]+(\.[\w\-]+)+)(:\d+)?(\/.*)?$/i.test(url);
   }
 
-  // Event listener for clicking the "Scan Now" button
+  function formatURL(url) {
+      return url.startsWith("http://") || url.startsWith("https://") ? url : "http://" + url;
+  }
+
   scanButton.addEventListener("click", async function () {
-    let websiteURL = urlInput.value.trim();
+      let websiteURL = formatURL(urlInput.value.trim());
 
-    if (!isValidURL(websiteURL)) {
-      alert("❌ Please enter a valid URL.");
-      return;
-    }
-
-    console.log(`🔍 Scanning URL: ${websiteURL}`); // Log input URL
-
-    // Show the entered URL in the results section
-    scannedUrlSpan.textContent = websiteURL;
-
-    // Send API request to Django backend
-    try {
-      let response = await fetch("/api/check-website/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url: websiteURL }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch API data");
+      if (!isValidURL(websiteURL)) {
+          alert("❌ Please enter a valid URL.");
+          return;
       }
 
-      let data = await response.json();
+      console.log(`🔍 Scanning URL: ${websiteURL}`);
+      scannedUrlSpan.textContent = websiteURL;
 
-      // Log the API response
-      console.log("✅ API Response:", data);
+      try {
+          let response = await fetch("/api/check-website/", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ url: websiteURL }),
+          });
 
-      // Extract response data
-      let trustScore = data.trust_score || 0;
-      let riskLevel = data.risk_level || "Unknown Risk";
-      let actionRequired = data.action || "No action needed.";
+          if (!response.ok) throw new Error("Failed to fetch API data");
 
-      // Update the HTML elements dynamically
-      trustScoreSpan.textContent = `${trustScore}%`;
-      scoreDisplay.textContent = `${trustScore}%`;
-      analysisList.innerHTML = `
-                <li><strong>Risk Level:</strong> ${riskLevel}</li>
-                <li><strong>Action Required:</strong> ${actionRequired}</li>
-            `;
+          let data = await response.json();
+          console.log("✅ API Response:", data);
 
-      // Adjust speedometer needle position based on trust score
-      let angle = ((trustScore / 100) * 180) - 90;
-      needle.style.transform = `rotate(${angle}deg)`;
+          let trustScore = data.trust_score || 0;
+          let riskLevel = data.risk_level || "Unknown Risk";
+          let actionRequired = data.action || "No action needed.";
 
-      // Show the results section
-      resultSection.classList.remove("hidden");
-    } catch (error) {
-      console.error("❌ Error fetching website scan results:", error);
-      alert("⚠️ Error fetching website scan results. Please try again.");
-    }
+          trustScoreSpan.textContent = `${trustScore}%`;
+          //scoreDisplay.textContent = `${trustScore} / 100`;
+          trustScoreText.textContent = `${trustScore}%`; // Update center text
+
+          analysisList.innerHTML = `
+              <li><strong>Risk Level:</strong> ${riskLevel}</li><br>
+              <li><strong>Action Required:</strong> ${actionRequired}</li>
+          `;
+
+          // Update the pie chart using CSS conic-gradient
+          pieChart.style.background = `conic-gradient(#2ecc71 ${trustScore}%, #e74c3c 0%)`;
+
+      } catch (error) {
+          console.error("❌ Error fetching website scan results:", error);
+          alert("⚠️ Error fetching website scan results. Please try again.");
+      }
   });
 
-  // Optional: Allow pressing "Enter" to trigger the scan
   urlInput.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      scanButton.click();
-    }
+      if (event.key === "Enter") {
+          scanButton.click();
+      }
   });
 });
