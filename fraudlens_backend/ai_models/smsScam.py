@@ -40,9 +40,8 @@ y_pred = model.predict(X_test)
 
 # Evaluate Model
 accuracy = accuracy_score(y_test, y_pred)
-print(f"Accuracy: {accuracy * 100:.2f}%")
-print("Classification Report:")
-print(classification_report(y_test, y_pred))
+#print(f"Accuracy: {accuracy * 100:.2f}%")
+
 
 # Function to Predict Spam/Ham and give output
 def predict_spam(text):
