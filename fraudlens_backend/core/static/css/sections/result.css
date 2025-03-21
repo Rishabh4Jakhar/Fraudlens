@@ -1,18 +1,43 @@
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
 
-/* General Styling */
-body {
-    font-family: "Poppins", sans-serif;
-    background: #0B132B; /* Match Index Page Background */
-    color: white;
-    text-align: center;
-    margin: 0;
+:root {
+    --playfair-display: "Playfair Display", serif;
+    --plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
+  
+    --primary-color: #05445e;
+    --secondary-color: #274472;
+    --header-color:#000000;
+  
+    --black-200: #020202;
+    --black-300: #333333;
+    --black-400: #1f1e31;
+    --black-500: #555555;
+    --gray-100: #888888;
+  
+    --color-white: #fff;
+    --color-creamson: #fff0de;
+  }
+* {
+    margin:0;
     padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+body {
+    font-family:var(--playfair-display) ;
+    background: var(--primary-color);
+    background-color: var(--color-creamson);
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1280px;
+    font-weight: 500;
 }
 
-/* Container */
-.container {
+
+.result {
     width: 60%;
     margin: 100px auto;
     background: rgba(255, 255, 255, 0.1); /* Slight Transparency */
@@ -24,7 +49,10 @@ body {
 
 /* Heading */
 h1, h2, h3 {
-    color: #00D4FF; /* Same as Index Page Accent Color */
+    color: var(--color-white);
+    font-family:var(--plus-jakarta-sans) ;
+    font-weight: 400;
+
 }
 
 /* Speedometer Styling */
@@ -98,3 +126,76 @@ button:hover {
     background: #008CBA; /* Darker Blue */
     color: white;
 }
+.scan {
+    padding: 64px;
+    background-color: var(--primary-color);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .scan h2 {
+    font-size: 88px;
+    font-family: var(--playfair-display);
+    font-weight: 600;
+    line-height: 123px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .scan p {
+    font-size: 18px;
+    font-family: var(--plus-jakarta-sans);
+    font-weight: 300;
+    line-height: 36px;
+    margin-top: 32px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .scan__form {
+    min-width: 480px;
+    margin-top: 40px;
+    padding: 14px 14px 14px 24px;
+    display: flex;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 46px;
+  }
+  
+  
+  .scan__form input {
+    flex: 1;
+    font-size:  16px;
+    font-weight: 400px;
+    font-family: var(--plus-jakarta-sans);
+    color: #fff;
+    opacity: 0.5;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 12px;
+  }
+  
+  .scan__form input::placeholder {
+    color: #fff;
+    opacity: 0.5;
+    width: 50%;
+  }
+  
+  .scan__form button {
+    padding: 20px;
+    max-width: 180px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--plus-jakarta-sans);
+    color: #fff;
+    text-align: center;
+    background: var(--black-400);
+    border-radius: 46px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
