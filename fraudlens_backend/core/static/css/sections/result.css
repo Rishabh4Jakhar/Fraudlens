@@ -1,34 +1,47 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
-    background: #f8f9fa;
+    font-family: "Poppins", sans-serif;
+    background: #0B132B; /* Match Index Page Background */
+    color: white;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-.result {
+/* Container */
+.container {
     width: 60%;
     margin: 100px auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.1); /* Slight Transparency */
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
 }
 
+/* Heading */
+h1, h2, h3 {
+    color: #00D4FF; /* Same as Index Page Accent Color */
+}
 
+/* Speedometer Styling */
 .speedometer {
-    width: 200px;
-    height: 100px;
-    border-radius: 100px 100px 0 0;
+    width: 250px;
+    height: 130px;
+    border-radius: 130px 130px 0 0;
     background: linear-gradient(to right, red, orange, yellow, green);
     margin: 20px auto;
     position: relative;
+    border: 3px solid white;
 }
 
+/* Speedometer Needle */
 .needle {
     width: 5px;
-    height: 80px;
+    height: 100px;
     background: black;
     position: absolute;
     bottom: 0;
@@ -38,103 +51,50 @@ body {
     transition: transform 2s ease-in-out;
 }
 
+/* Score Display */
 .score {
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 24px;
     font-weight: bold;
+    margin-top: 20px;
+    color: white;
 }
 
-
+/* Feature Analysis */
 #analysisList {
     text-align: left;
     margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
 }
 
 #analysisList div {
-    background: #f1f1f1;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease-in-out;
 }
 
-.safe { color: green; }
-.suspicious { color: orange; }
-.dangerous { color: red; }
+/* Risk Level Colors */
+.safe { color: #00FF88; font-weight: bold; } /* Green */
+.suspicious { color: #FFAA00; font-weight: bold; } /* Orange */
+.dangerous { color: #FF4444; font-weight: bold; } /* Red */
 
-.scan {
-    padding: 64px;
-    background-color: var(--primary-color);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  
-    flex-direction: column;
-    overflow: hidden;
-  }
-  
-  .scan h2 {
-    font-size: 88px;
-    font-family: var(--playfair-display);
-    font-weight: 600;
-    line-height: 123px;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .scan p {
-    font-size: 18px;
-    font-family: var(--plus-jakarta-sans);
-    font-weight: 300;
-    line-height: 36px;
-    margin-top: 32px;
-    color: rgba(255, 255, 255, 0.8);
-  }
-  
-.scan__form {
-    min-width: 480px;
-    margin-top: 40px;
-  
-    padding: 14px 14px 14px 24px;
-  
-    display: flex;
-    gap: 10px;
-  
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 46px;
-  }
-  
-  .scan__form input {
-    flex: 1;
-    font-size:  16px;
-    font-weight: 400px;
-    font-family: var(--plus-jakarta-sans);
-    color: #fff;
-    opacity: 0.5;
-    background: transparent;
-    border: none;
-    outline: none;
-  }
-  
-  .scan__form input::placeholder {
-    color: #fff;
-    opacity: 0.5;
-  }
-  
-  .scan__form button {
-    padding: 20px;
-  
-    min-width: 180px;
-  
+/* Buttons */
+button {
+    background: #00D4FF;
+    color: black;
     font-size: 16px;
-    font-weight: 500;
-    font-family: var(--plus-jakarta-sans);
-    color: #fff;
-    text-align: center;
-  
-    background: var(--black-400);
-    border-radius: 46px;
+    padding: 12px 20px;
     border: none;
-    outline: none;
-  
+    border-radius: 8px;
     cursor: pointer;
-  }
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #008CBA; /* Darker Blue */
+    color: white;
+}
