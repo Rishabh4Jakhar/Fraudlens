@@ -178,13 +178,14 @@ button:hover {
     border: none;
     outline: none;
     padding: 12px;
-    text-align: right; 
+    text-align: left;
 }
   
   .scan__form input::placeholder {
     color: #fff;
     opacity: 0.5;
     width: 100%;
+    align-items: right;
   }
   
   .scan__form button {
