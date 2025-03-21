@@ -56,3 +56,87 @@ factors.forEach(factor => {
 
     analysisList.appendChild(factorDiv);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Select elements correctly
+    const scanButton = document.querySelector(".scan__form button");
+    const urlInput = document.querySelector(".scan__form input");
+    const resultSection = document.getElementById("result");
+    const trustScoreSpan = document.getElementById("trustscore");
+    const scoreDisplay = document.getElementById("scoreDisplay");
+    const scannedUrlSpan = document.getElementById("scannedUrl");
+    const analysisList = document.getElementById("analysisList");
+    const needle = document.getElementById("needle");
+
+    // Function to validate URL
+    function isValidURL(url) {
+        const pattern = /^(https?:\/\/)?([\w\-]+(\.[\w\-]+)+)(:\d+)?(\/.*)?$/i;
+        return pattern.test(url);
+    }
+
+    // Event listener for clicking the "Scan Now" button
+    scanButton.addEventListener("click", async function () {
+        let websiteURL = urlInput.value.trim();
+
+        if (!isValidURL(websiteURL)) {
+            alert("❌ Please enter a valid URL.");
+            return;
+        }
+
+        console.log(`🔍 Scanning URL: ${websiteURL}`); // Log input URL
+
+        // Show the entered URL in the results section
+        scannedUrlSpan.textContent = websiteURL;
+
+        // Send API request to Django backend
+        try {
+            let response = await fetch("/api/check-website/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ url: websiteURL }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch API data");
+            }
+
+            let data = await response.json();
+
+            // Log the API response
+            console.log("✅ API Response:", data);
+
+            // Extract response data
+            let trustScore = data.trust_score || 0;
+            let riskLevel = data.risk_level || "Unknown Risk";
+            let actionRequired = data.action || "No action needed.";
+
+            // Update the HTML elements dynamically
+            trustScoreSpan.textContent = `${trustScore}%`;
+            scoreDisplay.textContent = `${trustScore}%`;
+            analysisList.innerHTML = `
+                <li><strong>Risk Level:</strong> ${riskLevel}</li>
+                <li><strong>Action Required:</strong> ${actionRequired}</li>
+            `;
+
+            // Adjust speedometer needle position based on trust score
+            let angle = (trustScore / 100) * 180;
+            needle.style.transform = `rotate(${angle}deg)`;
+
+            // Show the results section
+            resultSection.classList.remove("hidden");
+
+        } catch (error) {
+            console.error("❌ Error fetching website scan results:", error);
+            alert("⚠️ Error fetching website scan results. Please try again.");
+        }
+    });
+
+    // Optional: Allow pressing "Enter" to trigger the scan
+    urlInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            scanButton.click();
+        }
+    });
+});

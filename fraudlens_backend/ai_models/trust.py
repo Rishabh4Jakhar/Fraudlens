@@ -5,6 +5,9 @@ import socket
 from urllib.parse import urlparse
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
+import warnings
+warnings.simplefilter(action='ignore', category=UserWarning)
+
 
 def check_ip_address(url):
     try:
