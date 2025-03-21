@@ -1,0 +1,62 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.speedometer {
+    width: 200px;
+    height: 100px;
+    border-radius: 100px 100px 0 0;
+    background: linear-gradient(to right, red, orange, yellow, green);
+    margin: 20px auto;
+    position: relative;
+}
+
+.needle {
+    width: 5px;
+    height: 80px;
+    background: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform-origin: bottom;
+    transform: rotate(-90deg);
+    transition: transform 2s ease-in-out;
+}
+
+.score {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+#analysisList {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#analysisList div {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.safe { color: green; }
+.suspicious { color: orange; }
+.dangerous { color: red; }

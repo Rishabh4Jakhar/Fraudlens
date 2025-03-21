@@ -6,3 +6,6 @@ def home(request):
 
 def signin(request):
     return render(request, 'login.html')
+
+def result(request):
+    return render(request, 'result.html')

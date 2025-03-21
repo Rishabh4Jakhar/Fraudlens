@@ -1,0 +1,55 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results | FraudLens</title>
+    <link rel="stylesheet" href="Fraudlens\fraudlens_backend\core\static\css\sections\result.css">
+</head>
+<body>
+
+    <section class="scan flex-center" id="scan">
+        <h2 data-aos="flip-down">
+          Scan a Website <br />
+          for Scams
+        </h2>
+        <p data-aos="fade-up">Enter a website URL below and let FraudLens analyze its trust score.<br>
+           Stay protected from phishing, fraud, and fake sites</p>
+    
+        <div class="scan__form" data-aos="fade-up">
+          <input type="text" placeholder="Enter the Wbsite URL "/>
+          <button>Scan Now</button>
+        </div>
+    
+        <div id="result" class="hidden">
+          <h3>FraudLens Trust Score (FLTS): <span id="trustscore">0%</span></h3>
+          
+          <div class="speedometer">
+              <div class="needle" id="needle"></div>
+              <div class="score" id="scoreDisplay">0%</div>
+          </div>
+          <ul id="analysisList"></ul>
+          <div class="flts">
+            <h1>FraudLens Trust Score (FLTS)</h1>
+            <p>Analyzing the security of: <span id="scannedUrl"></span></p>
+    
+            <!-- Speedometer -->
+            <div class="speedometer">
+                <div class="needle" id="needle"></div>
+                <div class="score" id="scoreDisplay">0%</div>
+            </div>
+    
+            <!-- Trust Score Explanation -->
+            <h2>How We Scored This Website</h2>
+            <div id="analysisList"></div>
+    
+            <button onclick="window.location.href='index.html'">Scan Another</button>
+        </div>
+    
+        <script src="{% static 'js/result.js' %}"></script>
+      </section>
+
+
+</body>
+</html>
