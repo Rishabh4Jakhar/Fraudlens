@@ -1,0 +1,147 @@
+.features-page{
+    padding:64px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    background-position: center;
+    background-size: contain;
+    overflow: hidden;
+}
+
+.features-page__title{
+    font-size: 56px;
+    font-family: var(--playfair-display);
+    font-weight: 600;
+    line-height: 78px;
+    color: white;
+    text-align: center;
+}
+
+.features-page__types{
+    margin-top: 48px;
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.features-page__types-btn{
+    padding: 10px 28px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 46px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 25px;
+    font-family: var(--plus-jakarta-sans);
+    color: white;
+    cursor: pointer;
+}
+.features-page__types-btn i{
+    object-fit: contain;
+}
+
+.features-page__types-btn.active{
+    background: white;
+    color: var(--primary-color);
+}
+
+.features-page__types-btn:hover{
+    background: white;
+    color: var(--primary-color);
+}
+
+.features-page__catalogue{
+    margin-top: 64px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 56px;
+}
+
+.features-page__button{
+    width: fit-content;
+    padding: 20px 30px;
+    margin: 80px auto 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    font-family: var(--plus-jakarta-sans);
+    color: #fff;
+    border: none;
+    border-radius: 64px;
+    outline: none;
+    background: var(--header-color);
+    cursor: pointer;
+}
+
+.features__card{
+    padding: 38px;
+    width: 300px;
+    min-width: 300px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 36px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.features__card i{
+    width: 110px;
+    height: 84px;
+    object-fit: contain;
+}
+
+.features__card-title{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: var(--playfair-display);
+    color: #fff;
+    text-align: center;
+}
+
+.features__card-detail {
+    width: 100%;
+    margin-top: 20px;
+    color: white;
+  }
+
+.features__card.active-card {
+    background: #fff;
+    width: 300px;
+    min-width: 340px;
+}
+
+.features__card:not(.active-card) .features__card-detail {
+    color: white;
+}
+
+.features__card.active-card,
+.features__card-detail {
+    color: var(--black-500);
+}
+
+.features__card-title1{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: var(--playfair-display);
+    color: black;
+    text-align: center;
+}
+
+.features__card {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.features__card.hidden {
+    opacity: 0.3; /* Dim non-selected cards */
+}
