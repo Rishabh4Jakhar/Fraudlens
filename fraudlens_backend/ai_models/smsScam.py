@@ -44,14 +44,11 @@ print(f"Accuracy: {accuracy * 100:.2f}%")
 print("Classification Report:")
 print(classification_report(y_test, y_pred))
 
-# Function to Predict Spam/Ham
+# Function to Predict Spam/Ham and give output
 def predict_spam(text):
     text = clean_text(text)
     text_vectorized = vectorizer.transform([text])
     prediction = model.predict(text_vectorized)
     return "Spam" if prediction[0] == 1 else "Not Spam"
 
-# Example Predictions
-print("\n🔎 Example Predictions:")
-message=input("Enter message to flag for spam: ")
-print(predict_spam(message))
+
