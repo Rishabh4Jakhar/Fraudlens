@@ -10,6 +10,7 @@ def check_website_trust(request):
     url = request.data.get('url', '')
     # Here, you'll later call the AI function
     response = trust.run_trust(url)
+    #print(response, "In api call", url)
     #response = {"trust_score": 78, "message": f"Website seems safe {url}"}  
     return JsonResponse(response)
 
