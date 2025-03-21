@@ -107,14 +107,14 @@ def predict_trust_score(url):
 def run_trust(url):
     trust_score = predict_trust_score(url)
     if trust_score>=90:
-        return [int(trust_score), "Very Safe", "Trusted & legitimate. No action needed."]
+        return {"trust_score": int(trust_score), "risk_level": "Very Safe","action": "Trusted & legitimate. No action needed."}
     elif trust_score>=75:
-        return [int(trust_score), "Mostly Safe", "Likely safe but review if necessary."]
+        return {"trust_score": int(trust_score),"risk_level": "Mostly Safe","action": "Likely safe but review if necessary."}
     elif trust_score>=50:
-        return [int(trust_score), "Suspicious", "Monitor closely. Needs further checks."]
+        return {"trust_score": int(trust_score),"risk_level": "Suspicious","action": "Monitor closely. Needs further checks."}
     elif trust_score>=30:
-        return [int(trust_score), "High Risk", "Possibly fraudulent. Manual review advised."]
+        return {"trust_score": int(trust_score),"risk_level": "High Risk","action": "Possibly fraudulent. Manual review advised."}
     elif trust_score>=10:
-        return [int(trust_score), "Dangerous", "Strong signs of fraud. Block or investigate immediately."]
+        return {"trust_score": int(trust_score),"risk_level": "Dangerous","action": "Strong signs of fraud. Block or investigate immediately."}
     else:
-        return [int(trust_score), "Critical Fraud", "Confirmed scam/phishing. Immediate action required."]
+        return {"trust_score": int(trust_score), "risk_level": "Critical Fraud", "action": "Confirmed scam/phishing. Immediate action required."}
