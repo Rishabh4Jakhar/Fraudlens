@@ -96,8 +96,11 @@ h1, h2, h3 {
 }
 
 #analysisList div {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--color-creamson);
     padding: 12px;
+    width: 50rem;
+    margin-left: 12rem;
+    align-items: center;
     border-radius: 8px;
     margin-bottom: 8px;
     transition: all 0.3s ease-in-out;
@@ -105,8 +108,13 @@ h1, h2, h3 {
 
 /* Risk Level Colors */
 .safe { color: #00FF88; font-weight: bold; } /* Green */
-.suspicious { color: #FFAA00; font-weight: bold; } /* Orange */
-.dangerous { color: #FF4444; font-weight: bold; } /* Red */
+.suspicious { color: #D98324; font-weight: bold; } /* Orange */
+.dangerous { 
+  color: #A31D1D; 
+  font-weight: 800; 
+  font-family: var(--plus-jakarta-sans);
+  font-size: 15px;
+} /* Red */
 
 /* Buttons */
 button {
@@ -157,13 +165,14 @@ button:hover {
   
   .scan__form {
     max-width: 500px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 325px;
     padding: 10px 14px 10px 50px;
     display: flex;
     gap: 10px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 46px;
+    height: 80px;
   }
   
   
@@ -179,6 +188,7 @@ button:hover {
     outline: none;
     padding: 12px;
     text-align: left;
+    line-height: 20px;
 }
   
   .scan__form input::placeholder {
@@ -191,7 +201,8 @@ button:hover {
   .scan__form button {
     padding: 16px 24px;
     margin-left: 50px;
-    margin-bottom: 14px;
+    height: 50px;
+    margin-top: 7px;
     max-width: 180px;
     font-size: 16px;
     font-weight: 500;
