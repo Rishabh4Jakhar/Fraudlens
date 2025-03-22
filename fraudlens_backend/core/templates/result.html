@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{% static 'assets/logo.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'public/logo.png' %}"/>
     <title>Scan Results | FraudLens</title>
     <link rel="stylesheet" href="{% static 'css/sections/result.css' %}">
 
@@ -26,15 +26,14 @@
     
         <div id="result" class="hidden">
           <h3>FraudLens Trust Score (FLTS): <span id="trustscore">0%</span></h3>
-          
-          <div class="speedometer">
-              <div class="needle" id="needle"></div>
-              <div class="score" id="scoreDisplay">0%</div>
-          </div>
+          <p>Analyzing the security of: <span id="scannedUrl"></span></p>  <br>        
+          <div id="pieChartContainer">
+            <div id="pieChart">
+                <span id="trustScoreText">0</span>
+            </div>
+        </div>
           <ul id="analysisList"></ul>
-          <div class="flts">
-            <h1>FraudLens Trust Score (FLTS)</h1>
-            <p>Analyzing the security of: <span id="scannedUrl"></span></p>
+          <div class="flts">  
             <div id="analysisList"></div>
 
         </div>
