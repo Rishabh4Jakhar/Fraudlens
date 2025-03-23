@@ -10,3 +10,8 @@ def signin(request):
 #test
 def result(request):
     return render(request, 'result.html')
+
+#login
+
+def login(request):
+    return render(request, 'login.html')
