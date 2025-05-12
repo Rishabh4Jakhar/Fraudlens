@@ -15,3 +15,8 @@ def result(request):
 
 def login(request):
     return render(request, 'login.html')
+
+#recognize a website
+def recognize(request):
+    return render(request, 'recognize.html')
+

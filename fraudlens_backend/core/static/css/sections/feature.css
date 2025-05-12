@@ -84,7 +84,7 @@
     padding: 38px;
     width: 300px;
     min-width: 300px;
-    height: fit-content;
+    height: 200px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -107,6 +107,10 @@
     text-align: center;
 }
 
+.features__card.active-card .features__card-title {
+    color: black; 
+}
+
 .features__card-detail {
     width: 100%;
     margin-top: 20px;
@@ -114,7 +118,7 @@
   }
 
 .features__card.active-card {
-    background: #fff;
+    background: white;
     width: 300px;
     min-width: 340px;
 }
@@ -127,6 +131,7 @@
 .features__card-detail {
     color: var(--black-500);
 }
+
 
 .features__card-title1{
     font-weight: 500;
