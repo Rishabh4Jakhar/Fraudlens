@@ -4,7 +4,7 @@ Demo video link: **[Youtube](https://youtu.be/AIHhBog-fDw)**
 
 ## Contributors
 
-- Advik Gupta (GOAT)
+- Advik Gupta
 - Akshat Bhatt
 - Rishabh Jakhar
 - Tanisha Sharma 
