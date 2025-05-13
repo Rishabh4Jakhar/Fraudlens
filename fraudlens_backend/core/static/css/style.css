@@ -8,7 +8,8 @@
 
 @import url("sections/scan.css");
 @import url("sections/feature.css");
-
+@import url("sections/recognize.css");
+@import url("sections/textsentry.css");
 :root {
     --playfair-display: "Playfair Display", serif;
     --plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
