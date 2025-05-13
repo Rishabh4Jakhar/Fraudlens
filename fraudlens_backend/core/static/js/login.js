@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Signup Form Submission
     signupForm.addEventListener("submit", function (e) {
+        console.log("Signup form submitted");
         e.preventDefault();
 
         const name = signupForm.querySelector('input[placeholder="Name"]').value.trim();
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("api/signup/", {
+        fetch("/api/signup/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: name, email, password }),
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("api/login/", {
+        fetch("/api/login/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: email, password }),  // Assuming username is email for login
@@ -72,14 +73,5 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
         .catch(err => console.error(err));
-    });
-
-    // Optional: toggle panel switching
-    document.getElementById("login").addEventListener("click", () => {
-        document.getElementById("container").classList.remove("right-panel-active");
-    });
-
-    document.getElementById("register").addEventListener("click", () => {
-        document.getElementById("container").classList.add("right-panel-active");
     });
 });
