@@ -39,7 +39,9 @@
           <li><a href="#search"></a></li>
         </li>
         <li>
-          <a onclick="window.location.href='login'">Sign Up</a>
+          <div id="header-user">
+            <a onclick="window.location.href='login'">Sign Up</a>
+          </div>
         </li>
 
       </ul>
@@ -257,7 +259,31 @@
     duration: 1000,
     offset: 100,
   });
-</script>
+  window.addEventListener("DOMContentLoaded", function() {
+    const headerUserDiv = document.getElementById("header-user");
+    const username = localStorage.getItem("username");
+
+    if (username) {
+      // Show username & logout button
+      headerUserDiv.innerHTML = `
+        <span>Welcome, ${username}</span>
+        <a href="#" onclick="logoutUser()" style="margin-left: 10px;">Logout</a>
+      `;
+    } else {
+      // Show Sign Up button
+      headerUserDiv.innerHTML = `
+        <a href="login">Sign Up</a>
+      `;
+    }
+  });
+
+  function logoutUser() {
+    localStorage.removeItem("username");
+    alert("You have been logged out.");
+    location.reload();  // Refresh to update header
+  }
+</script> 
+
 
 
 <script src="{% static 'js/features.js' %}"></script>
