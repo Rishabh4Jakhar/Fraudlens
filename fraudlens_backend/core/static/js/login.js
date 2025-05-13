@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             if (data.message) {
                 alert("✅ Login successful!");
+                console.log(data);
                 localStorage.setItem("username", data.username);
                 window.location.href = "/";  // Redirect to homepage after login
             } else {

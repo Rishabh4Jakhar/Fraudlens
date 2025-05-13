@@ -266,8 +266,12 @@
     if (username) {
       // Show username & logout button
       headerUserDiv.innerHTML = `
+        <li>
         <span style="color: #000000">Welcome, ${username}</span>
-        <a href="#" onclick="logoutUser()" style="margin-left: 10px;">Logout</a>
+        </li>
+        <li
+        <a href="#" onclick="logoutUser()" style="margin-left: 10px; color: #000000">Logout</a>
+        </li>
       `;
     } else {
       // Show Sign Up button
