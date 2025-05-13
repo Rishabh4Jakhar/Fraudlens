@@ -20,3 +20,6 @@ def login(request):
 def recognize(request):
     return render(request, 'recognize.html')
 
+#textsentry
+def textsentry(request):
+    return render(request, 'textsentry.html')
