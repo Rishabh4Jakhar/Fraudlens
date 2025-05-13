@@ -52,18 +52,19 @@ def signup(request):
 def login(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        username = data.get('username')
+        email = data.get('username')
         password = data.get('password')
 
-        if not (username and password):
+        if not (email and password):
             return JsonResponse({'error': 'All fields are required'}, status=400)
         try:
-            user = AppUser.objects.get(username=username)
+            print(email, password)
+            user = AppUser.objects.get(email=email)
             if check_password(password, user.password):
                 # Login success
                 return JsonResponse({'message': 'Login successful', 'username': user.username})            
             else:
-                return JsonResponse({'error': 'Invalid credentials'}, status=401)
+                return JsonResponse({'error': 'Invalid credentials 1'}, status=401)
         except AppUser.DoesNotExist:
             return JsonResponse({'error': 'Invalid credentials'}, status=401)
 
