@@ -262,11 +262,11 @@
   window.addEventListener("DOMContentLoaded", function() {
     const headerUserDiv = document.getElementById("header-user");
     const username = localStorage.getItem("username");
-
+    console.log("Username from localStorage:", username);
     if (username) {
       // Show username & logout button
       headerUserDiv.innerHTML = `
-        <span>Welcome, ${username}</span>
+        <span style="color: #000000">Welcome, ${username}</span>
         <a href="#" onclick="logoutUser()" style="margin-left: 10px;">Logout</a>
       `;
     } else {
