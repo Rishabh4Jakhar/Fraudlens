@@ -91,6 +91,7 @@
     border-radius: 36px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
 }
 .features__card i{
     width: 110px;
@@ -109,6 +110,7 @@
 
 .features__card.active-card .features__card-title {
     color: black; 
+    cursor: pointer;
 }
 
 .features__card-detail {
