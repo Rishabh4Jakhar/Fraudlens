@@ -113,60 +113,75 @@
     </div>
   </section>
 
-  <section class="features-page" id="features">
-    <h2 class="features-page__title">Detect, Prevent, Stay Secure</h2>
+<section class="features-page" id="features">
+  <h2 class="features-page__title">Detect, Prevent, Stay Secure</h2>
 
-    <div class="features-page__types">
-      <button class="features-page__types-btn active" onclick="filterFeatures('all')">All</button>
-        <button class="features-page__types-btn" onclick="filterFeatures('phishshield')">
-            <i class="ri-shield-user-fill"></i> PhishShield
-        </button>
-        <button class="features-page__types-btn" onclick="filterFeatures('scammail')">
-            <i class="ri-mail-fill"></i> ScamMail
-        </button>
-        <button class="features-page__types-btn" onclick="filterFeatures('fakesite')">
-            <i class="ri-globe-fill"></i> FakeSite
-        </button>
-      
-    </div>
-    <div class="features-page__catalogue">
-      <article class="features__card">
-        <h4 class="features__card-title">
-          <i class="ri-shield-user-fill"></i>
-          PhishShield</h4>
-          <div class="features__card-detail flex-between">
-            <p>Detects phishing websites and scam links<br>
-               before you fall victim to fraud.</p>
-          </div>
-
-      </article>
-      <article class="features__card active-card">
-        <h4 class="features__card-title">
-          <i class="ri-mail-fill"></i>
-          ScamMail</h4>
-          <div class="features__card-detail flex-between">
-            <p>Identifies suspicious email patterns<br>
-               and warns users about potential phishing scams.</p>
-          </div>
-          
-      </article>
-      <article class="features__card">
-        <h4 class="features__card-title">
-          <i class="ri-globe-fill"></i>
-          FakeSite</h4>
-          <div class="features__card-detail flex-between">
-            <p>Recognizes fraudulent domains<br>
-               that mimic real websites to trick users.</p>
-          </div>
-          
-      </article>
-
-    </div>
-    <button class="features-page__button" onclick="window.location.href='result'">
-      Explore More
-      <i class="ri-arrow-right-fill"></i>
+  <div class="features-page__types">
+    <button class="features-page__types-btn active" onclick="filterFeatures('all')">All</button>
+    <button class="features-page__types-btn" onclick="filterFeatures('newsnaked')">
+      <i class="ri-shield-user-fill"></i> NewsNaked
     </button>
-  </section>
+    <button class="features-page__types-btn" onclick="filterFeatures('textsentry')">
+      <i class="ri-mail-fill"></i> TextSentry
+    </button>
+    <button class="features-page__types-btn" onclick="filterFeatures('scamwebsites')">
+      <i class="ri-globe-fill"></i> ScamWebsites
+    </button>
+  </div>
+
+  <div class="features-page__catalogue">
+    <article class="features__card" data-feature="newsnaked" onclick="handleCardClick(this)">
+      <h4 class="features__card-title">
+        <i class="ri-shield-user-fill"></i> NewsNaked
+      </h4>
+      <div class="features__card-detail flex-between">
+        <p>Analyzes headlines to determine if the news<br>is real or fake using credibility checks.</p>
+      </div>
+    </article>
+
+    <article class="features__card active-card" data-feature="textsentry" onclick="handleCardClick(this)">
+      <h4 class="features__card-title">
+        <i class="ri-mail-fill"></i> TextSentry
+      </h4>
+      <div class="features__card-detail flex-between">
+        <p>Detects and flags spam or scam messages<br>using intelligent text analysis.</p>
+      </div>
+    </article>
+
+    <article class="features__card" data-feature="scamwebsites" onclick="handleCardClick(this)">
+      <h4 class="features__card-title">
+        <i class="ri-globe-fill"></i> ScamWebsites
+      </h4>
+      <div class="features__card-detail flex-between">
+        <p>Recognizes fraudulent domains<br>that mimic real websites to trick users.</p>
+      </div>
+    </article>
+  </div>
+
+  <button class="features-page__button" onclick="window.location.href='result'">
+    Explore More <i class="ri-arrow-right-fill"></i>
+  </button>
+</section>
+
+<script>
+  let focusedCard = null;
+
+  function handleCardClick(card) {
+    if (card.classList.contains("focused")) {
+      const feature = card.getAttribute("data-feature");
+      if (feature === "textsentry") window.location.href = "{% url 'textsentry'%}";
+      else if (feature === "newsnaked") window.location.href = "#";
+      else if (feature === "scamwebsites") window.location.href = "{% url 'result' %}";
+    } else {
+      // Remove focus from previous
+      document.querySelectorAll(".features__card").forEach(c => c.classList.remove("focused"));
+      card.classList.add("focused");
+      focusedCard = card;
+    }
+  }
+</script>
+
+
   <footer>
     <div class="footer-5-column">
       <div class="footer-container">
@@ -270,7 +285,7 @@
         <span style="color: #000000">Welcome, ${username}</span>
         </li>
         <li
-        <a href="#" onclick="logoutUser()" style="margin-left: 10px; color: #000000">Logout</a>
+        <a href="#" onclick="logoutUser()" style="margin-left: 8px; color: #000000">Logout</a>
         </li>
       `;
     } else {
@@ -287,8 +302,6 @@
     location.reload();  // Refresh to update header
   }
 </script> 
-
-
 
 <script src="{% static 'js/features.js' %}"></script>
 </html>
