@@ -1,0 +1,6 @@
+django>=4.2
+djangorestframework
+mysqlclient
+django-cors-headers
+tensorflow
+scikit-learn
