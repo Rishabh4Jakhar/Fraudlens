@@ -115,10 +115,10 @@ No build tool needed. Vanilla JS, HTML and CSS loaded from `templates/` and `sta
 
 ## Contributors
 
-- Advik Gupta
-- Akshat Bhatt
-- Rishabh Jakhar
-- Tanisha Sharma 
+- [Advik Gupta](https://github.com/NOVA2OP)
+- [Akshat Bhatt](https://github.com/AkshatBhatt4)
+- [Rishabh Jakhar](https://github.com/Rishabh4Jakhar)
+- [Tanisha Sharma](https://github.com/whytimmyy) 
 
 ---
 
