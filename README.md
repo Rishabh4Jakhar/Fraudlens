@@ -38,7 +38,7 @@ Demo video link: **[Youtube](https://youtu.be/AIHhBog-fDw)** (Old)
 
 ### MySQL Setup
 
-Ensure you have a MySQL database created. In `settings.py`, update your DATABASES section:
+Ensure you have a MySQL database `fraudlens_db` created. In `settings.py`, update your DATABASES section:
 
 ```python
 DATABASES = {
