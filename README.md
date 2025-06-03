@@ -94,6 +94,7 @@ mysqlclient
 django-cors-headers
 tensorflow
 scikit-learn
+xgboost
 ```
 
 ### frontend (no framework used)

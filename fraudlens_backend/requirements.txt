@@ -4,3 +4,4 @@ mysqlclient
 django-cors-headers
 tensorflow
 scikit-learn
+xgboost
